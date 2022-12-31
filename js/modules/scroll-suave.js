@@ -1,6 +1,6 @@
 export default class ScrollSuave {
-  constructor(links, option) {
-    this.linksInternos = document.querySelectorAll(links);
+  constructor(link, option) {
+    this.linksInternos = document.querySelectorAll(link);
     this.option = option || { behavior: 'smooth', block: 'start' };
     this.scrollToSection = this.scrollToSection.bind(this);
   }
@@ -13,9 +13,7 @@ export default class ScrollSuave {
   }
 
   addEvent() {
-    this.linksInternos.forEach((link) => {
-      link.addEventListener('click', this.scrollToSection);
-    });
+    this.linksInternos.forEach(link => link.addEventListener('click', this.scrollToSection));
   }
 
   init() {
