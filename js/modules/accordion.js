@@ -4,20 +4,18 @@ export default class Accordion {
     this.activeClass = 'ativo';
   }
 
-  toggleAccordion(item) {
+  activeAccordion(item) {
     item.classList.toggle(this.activeClass);
     item.nextElementSibling.classList.toggle(this.activeClass);
   }
 
   addEvent() {
-    this.accordionList.forEach((item) => {
-      item.addEventListener('click', () => this.toggleAccordion(item));
-    });
+    this.accordionList.forEach(item => item.addEventListener('click', () => this.activeAccordion(item)));
   }
 
   init() {
+    this.activeAccordion(this.accordionList[0]);
     if (this.accordionList.length) {
-      this.toggleAccordion(this.accordionList[0]);
       this.addEvent();
     }
     return this;

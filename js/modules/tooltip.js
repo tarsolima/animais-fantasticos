@@ -1,9 +1,9 @@
-export default class tTooltip {
-  constructor(tooltips) {
-    this.tooltips = document.querySelectorAll(tooltips);
+export default class Tooltip {
+  constructor(tooltip) {
+    this.tooltips = document.querySelectorAll(tooltip);
 
-    this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseOver = this.onMouseOver.bind(this);
   }
 
@@ -22,6 +22,7 @@ export default class tTooltip {
     currentTarget.removeEventListener('mousemove', this.onMouseMove);
   }
 
+
   criarTooltipBox(element) {
     const tooltipBox = document.createElement('div');
     const text = element.getAttribute('aria-label');
@@ -33,7 +34,6 @@ export default class tTooltip {
 
   onMouseOver({ currentTarget }) {
     this.criarTooltipBox(currentTarget);
-
     currentTarget.addEventListener('mousemove', this.onMouseMove);
     currentTarget.addEventListener('mouseleave', this.onMouseLeave);
   }
