@@ -1,24 +1,23 @@
-export default class tabNav {
+export default class TabNav {
   constructor(menu, content) {
     this.tabMenu = document.querySelectorAll(menu);
     this.tabContent = document.querySelectorAll(content);
+    this.activeClass = 'ativo';
   }
 
   activeTab(index) {
-    this.tabContent.forEach(section => section.classList.remove('ativo'));
+    this.tabContent.forEach(section => section.classList.remove(this.activeClass));
     const direcao = this.tabContent[index].dataset.anime;
-    this.tabContent[index].classList.add('ativo', direcao);
+    this.tabContent[index].classList.add(this.activeClass, direcao);
   }
 
   addEvent() {
-    this.tabMenu.forEach((itemMenu, index) => {
-      itemMenu.addEventListener('click', () => this.activeTab(index));
-    });
+    this.tabMenu.forEach((itemMenu, index) => itemMenu.addEventListener('click', () => this.activeTab(index)));
   }
 
   init() {
-    if (this.tabMenu && this.tabContent) {
-      this.activeTab(0);
+    if (this.tabMenu.length && this.tabContent.length) {
+      this.activeTab([0]);
       this.addEvent();
     }
     return this;

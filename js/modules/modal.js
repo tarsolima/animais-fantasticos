@@ -1,8 +1,8 @@
 export default class Modal {
-  constructor(botaoAbrir, botaoFechar, containerModal) {
-    this.botaoAbrir = document.querySelector(botaoAbrir);
-    this.botaoFechar = document.querySelector(botaoFechar);
-    this.containerModal = document.querySelector(containerModal);
+  constructor(abrir, fechar, container) {
+    this.botaoAbrir = document.querySelector(abrir);
+    this.botaoFechar = document.querySelector(fechar);
+    this.containerModal = document.querySelector(container);
 
     this.eventToggleModal = this.eventToggleModal.bind(this);
     this.cliqueForaModal = this.cliqueForaModal.bind(this);
@@ -23,7 +23,7 @@ export default class Modal {
     }
   }
 
-  addEventModal() {
+  addEvent() {
     this.botaoAbrir.addEventListener('click', this.eventToggleModal);
     this.botaoFechar.addEventListener('click', this.eventToggleModal);
     this.containerModal.addEventListener('click', this.cliqueForaModal);
@@ -31,7 +31,7 @@ export default class Modal {
 
   init() {
     if (this.botaoAbrir && this.botaoFechar && this.containerModal) {
-      this.addEventModal();
+      this.addEvent();
     }
     return this;
   }
