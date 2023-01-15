@@ -30,5 +30,5 @@ export default function fetchAnimais(url, target) {
     }
   }
 
-  return criarAnimais();
+  criarAnimais(url);
 }
