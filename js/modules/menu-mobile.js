@@ -1,4 +1,4 @@
-import outsideClick from './outsideclick.js';
+import debounce from './debounce.js';
 
 export default function initMenuMobile() {
   const menuButton = document.querySelector('[data-menu="button"]');
@@ -8,7 +8,7 @@ export default function initMenuMobile() {
   function openMenu() {
     menuList.classList.add('active');
     menuButton.classList.add('active');
-    outsideClick(menuList, eventos, () => {
+    debounce(menuList, eventos, () => {
       menuList.classList.remove('active');
       menuButton.classList.remove('active');
     });

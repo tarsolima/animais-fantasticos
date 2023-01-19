@@ -1,4 +1,4 @@
-import outsideClick from './outsideclick.js';
+import debounce from './debounce.js';
 
 export default function initDropdownMenu() {
   const dropdownMenus = document.querySelectorAll('[data-dropdown]');
@@ -6,7 +6,7 @@ export default function initDropdownMenu() {
   function handleClick(event) {
     event.preventDefault();
     this.classList.add('active');
-    outsideClick(this, ['touchstart', 'click'], () => {
+    debounce(this, ['touchstart', 'click'], () => {
       this.classList.remove('active');
     });
   }
